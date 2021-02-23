@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?ver=1.2.34">
+    <script src="vars.js?ver=1.2.34"></script>
+    <script src="index.js?ver=1.2.34"></script>
+    <title>Incremental Blocks v1.2.34</title>
+  </head>
+  <body>
+    <div id="warpAll">
+      <span id="containerI">
+        <div id="basicBlock" class="contentBlock">
+          <div id="timeSpeed">
+            <span style="display:none;">time speed x<span id="timeSpeedNum">1</span></span>
+          </div>
+          <div id="blocks">
+            <p id="blockCount">0</p><p id="blockTxt">blocks</p>
+          </div>
+          <div class="blocksPerSec">
+            <p id="blockPSCount">0</p><p id="blockPSTxt">blocks/s</p>
+          </div>
+          <div id="blockClick">
+            <div id="blockClickTxtWarp">
+              <p id="blockClickPlus">+</p><p id="blockPerClick">1</p><p id="blocClickTxt">blocks</p>
+            </div>
+          </div>
+          <div id="otherRes">
+            <span id="bpContainer" class="innerOtherRes" style="display:none;">
+              <div id="bpCounter" class="otherResNum">
+                0
+              </div>
+              <div id="bpTxt" class="otehrResName">
+                bp
+              </div>
+            </span>
+            <span id="apCounter" class="innerOtherRes" style="display:none;">
+              <div id="apCounter" class="otherResNum">
+                0
+              </div>
+              <div id="apTxt" class="otehrResName">
+                ap
+              </div>
+            </span>
+          </div>
+        </div>
+        <div id="basicUpgrade" class="contentBlock">
+          <div class="unlockedBlock" style="display:none;">
+            <div id="upgradeOrign">
+              <div id="upgradeBanner">
+                <p>upgrades</p><p>0/100</p>
+              </div>
+              <div id="upgradesList">
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 1
+                  </div>
+                  <div>
+                    cost: 100.0asd
+                  </div>
+                </div>
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 2
+                  </div>
+                  <div>
+                    cost: 0
+                  </div>
+                </div>
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 3
+                  </div>
+                  <div>
+                    cost: 0
+                  </div>
+                </div>
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 4
+                  </div>
+                  <div>
+                    cost: 0
+                  </div>
+                </div>
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 5
+                  </div>
+                  <div>
+                    cost: 0
+                  </div>
+                </div>
+                <div class="upgradeContent upN">
+                  <div>
+                    upgrade 6
+                  </div>
+                  <div>
+                    cost: 0
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="mystUpgrade" style="display:none;">
+              <div id="mystUpgradeBanner">
+                <p>myst upgrades</p>
+              </div>
+              <div id="mystUpgradeList">
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    pps x2 (<span>0</span>)
+                  </div>
+                  <div>
+                    <span>1e45</span> block
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    pps x2 (<span>0</span>)
+                  </div>
+                  <div>
+                    <span>10.00k</span> token
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    pps x2 (<span>0</span>)
+                  </div>
+                  <div>
+                    <span>200</span> power
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    block/1e5 -> bupc  (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>1.000</span> playtime
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    rune cost x0.9 (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>1.000k</span> click
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    block x1.2 (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span></span> omega rune
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    10%p double click (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>0</span> rebuild
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    +1/s auto block (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>0</span> block
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    +1/s auto build (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>0</span> b used
+                  </div>
+                </div>
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    pps block use x0.9 (<span>0</span>)
+                  </div>
+                  <div>
+                    need <span>0</span> score
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="hypeUpgrade" style="display:none;">
+              <div id="hypeUpgradeBanner">
+                <p>owo</p>
+              </div>
+              <div id="mystUpgradeList">
+                <div class="mystUpgradeContent upN">
+                  <div>
+                    pps x2 (<span>0</span>)
+                  </div>
+                  <div>
+                    <span>1e45</span> block
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lockedBlock">
+            cost: 50 blocks
+          </div>
+        </div>
+      </span>
+      <span id="containerII">
+        <div id="middleContent" class="contentBlock">
+          <div class="unlockedBlock" style="display:none;">
+            <div id="middleContentNav">
+              <span class="openedNav">build</span>
+              <span class="lockedNav">locked</span>
+              <span class="lockedNav">locked</span>
+            </div>
+            <div id="middleContentWarp">
+              <div id="buildMenu">
+                <span>
+                  <div>
+                    <div id="buildDisplay">
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                      <div class="buildLine">
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                        <span class="buildBlock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div id="buildClick">
+                      <div id="buildClickTxtWarp">
+                        <p id="buildClickPlus">-</p><p id="buildPerClick">100.0k</p><p id="buildClickTxt">blocks use/click</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="baseBlockVaule">
+                    base value: <span id="baseBlockVauleMinNum">0</span> ~ <span id="baseBlockVauleMaxNum">0</span>
+                  </div>
+                </span>
+                <span>
+                  <div id="buildingNav">
+                    <span><</span><span>></span>
+                  </div>
+                  <div id="buildingNum">building 1</div>
+                  <div id="rebuildNum">rebuild 5</div>
+                  <div id="buildMult">total multiplier: x<span>1.000</span><br>each building multiply<br>block production by x<span>4</span></div>
+                  <div id="rebuildMult">rebuild multiplier: x<span>1.000</span><br>each rebuilding multiply<br>block production by x<span>1.054</span></div>
+                  <div id="toggleAutoBuild">toggle<br>auto</div>
+                </span>
+              </div>
+              <div id="runeMenu">
+                <div id="runeRotation">
+                  <svg id="runeLine"></svg>
+                  <div id="runes">
+                    <div id="alphaRunes">
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="betaRunes">
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="gammaRunes">
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="omegaRunes">
+                      <div class="rune" style="display:none;">
+                        <div>
+                          <div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="runeEtc">
+                  <span id="runeNameTxt">
+                    hover on<br>rune
+                  </span>
+                  <span id="runeInfo">
+                    <div id="selRuneLevel">
+
+                    </div>
+                    <div id="selRuneBoostInfo">
+                      <div id="selRuneBoostName">
+                        <span class="runeRedMarkup"><span>
+                      </div>
+                      <div id="selRuneBoostInfoNum">
+                        <span class="runeRedMarkup"><span>
+                      </div>
+                    </div>
+                    <div id="selRuneCost">
+                      cost: <span id="selRuneCostNum">0</span> power
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div id="beyondMenu">
+                <div id="beyondButton" class="beyNo">
+                  reach <span id="beyondNeedNum">1e100</span> block to beyond<br>get <span id="beyondGetNum">a</span> beyond point
+                </div>
+                <div id="rTreeTxt">
+                  rotation tree
+                </div>
+                <div id="rTreeDesc">
+                  <div id="rtBasicDesc">
+                    t<span id="rtNum">00</span> - <span id="rtName">hover on tree</span>
+                  </div>
+                  <div id="rtAdvencedDesc">
+
+                  </div>
+                </div>
+                <div id="rtUI">
+                  <span class="rotationButtonWarp">
+                    <div id="rotationL" class="rotationButton">
+                      &#129044;
+                    </div>
+                  </span>
+                  <span id="rtBorder">
+                    <div id="rotationTree">
+                      <div class="rTreeLine">
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                      </div>
+                      <div class="rTreeLine">
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                      </div>
+                      <div class="rTreeLine">
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                      </div>
+                      <div class="rTreeLine">
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                      </div>
+                      <div class="rTreeLine">
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                        <span class="rTreeBlock buyN">
+
+                        </span>
+                      </div>
+                    </div>
+                  </span>
+                  <span class="rotationButtonWarp">
+                    <div id="rotationR" class="rotationButton">
+                      &#129046;
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lockedBlock">
+            cost: 2.500m blocks
+          </div>
+        </div>
+        <div id="containerIInI">
+          <span id="boostSelect" class="contentBlock">
+            <div class="unlockedBlock" style="display:none;">
+              <div id="boostTopLayer">
+                <span id="boostToken">
+                  <div id="tokenImage"></div><div id="tokenNum">0</div>
+                </span>
+                <span id="cancelBoost" style="display:none;">
+                  cancel
+                </span>
+              </div>
+
+              <div id="selectBoost">
+                <span class="boostCell">
+                  <div class="boostType">bu eff</div>
+                  <div class="boostBuff">x5</div>
+                  <div class="boostTime">0:30</div>
+                  <div class="boostCost">10 token</div>
+                </span>
+                <span class="boostCell">
+                  <div class="boostType">bpc</div>
+                  <div class="boostBuff">x10</div>
+                  <div class="boostTime">0:30</div>
+                  <div class="boostCost">10 token</div>
+                </span>
+                <span class="boostCell">
+                  <div class="boostType">bps</div>
+                  <div class="boostBuff">x10</div>
+                  <div class="boostTime">0:30</div>
+                  <div class="boostCost">10 token</div>
+                </span>
+              </div>
+              <div id="selectedBoost">
+                <div id="innerSelectedBoost">
+                  <div id="boostInfo">
+                    <span id="activeBoostName">bu eff</span> x<span id="activeBoostNum">10000</span>
+                  </div>
+                  <div id="activeBoostTime">
+                    time left: <span id="activeBoostTimeNum">1:00.00</span>
+                  </div>
+                  <meter value="0" max="1" id="activeBoostTimeLeft"></meter>
+                </div>
+              </div>
+              <div id="boostCoolTime">
+                <div>cooldown</div>
+                <div id="boostCoolTimeNum">00:00:00</div>
+                <div>left</div>
+              </div>
+            </div>
+            <div class="lockedBlock">
+              cost: 2.000t blocks
+            </div>
+          </span>
+          <span id="powerProduction" class="contentBlock">
+            <div class="unlockedBlock" style="display:none;">
+              <div id="powerCount">
+                <div id="powerNum">
+                  0
+                </div>
+                <div id="powerTxt">
+                  power
+                </div>
+              </div>
+              <div id="togglePower">
+                <div id="togglePowerBlock">
+                  -<span id="togglePowerBlockNum">1e40</span> block/s
+                </div>
+                <div id="togglePowerPower">
+                  +<span id="togglePowerPowerNum">1</span> power/s
+                </div>
+              </div>
+              <div class="powerBulkButton">
+                ▲
+              </div>
+              <div id="powerBulkNum">
+                speed /1
+              </div>
+              <div class="powerBulkButton">
+                ▼
+              </div>
+              <div id="powerGenOptions" style="display:none;">
+                <span class="genSel">
+                  x1
+                </span>
+                <span>
+                  x10
+                </span>
+                <span>
+                  x100
+                </span>
+              </div>
+            </div>
+            <div class="lockedBlock">
+              cost: 2.500e40 blocks
+            </div>
+          </span>
+        </div>
+        <div id="unlockProgress" class="contentBlock">
+          <div class="unlockedBlock" style="display:none;">
+            <span id="uProgressTxt">
+              <span id="unlockName">myst upgrade 4</span> (<span id="unlockReq">1e45</span> blocks)
+            </span>
+          </div>
+          <div class="lockedBlock">
+            cost: 5.000e42 blocks
+          </div>
+        </div>
+      </span>
+      <span id="containerIII">
+        <div id="stat" class="contentBlock">
+          <div class="unlockedBlock" style="display:none;">
+            <div id="statBanner">
+              <p>status</p>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -total blocks: <span>0</span>
+              </div>
+              <div class="statline">
+                -click count: <span>0</span>
+              </div>
+              <div class="statline">
+                -play time(hour): <span>0</span>
+              </div>
+              <div class="statline">
+                -pure bpc: <span>0</span>
+              </div>
+              <div class="statline">
+                -pure bps: <span>0</span>
+              </div>
+              <div class="statline">
+                -bpc mult.: <span>0</span>
+              </div>
+              <div class="statline">
+                -bps mult.: <span>0</span>
+              </div>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -buildings: <span>0</span>
+              </div>
+              <div class="statline">
+                -building mult.: <span>0</span>
+              </div>
+              <div class="statline">
+                -bupc mult.: <span>0</span>
+              </div>
+              <div class="statline">
+                -bu eff mult.: <span>0</span>
+              </div>
+              <div class="statline">
+                -block used: <span>0</span>
+              </div>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -total token: <span>0</span>
+              </div>
+              <div class="statline">
+                -token chance: <span>0</span>%
+              </div>
+              <div class="statline">
+                -token gain: <span>0</span>
+              </div>
+              <div class="statline">
+                -boost used: <span>0</span>
+              </div>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -myst upgrade: <span>0</span>
+              </div>
+              <div class="statline">
+                -total power: <span>0</span>
+              </div>
+              <div class="statline">
+                -total rune: <span>0</span>
+              </div>
+              <div class="statline">
+                -max pps: <span>0</span>
+              </div>
+              <div class="statline">
+                -rebuild count: <span>0</span>
+              </div>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -total bp: <span>0</span>
+              </div>
+            </div>
+            <div class="statEra">
+              <div class="statline">
+                -overall score: <span>0</span>
+              </div>
+            </div>
+          </div>
+          <div class="lockedBlock">
+            cost: 1.000k blocks
+          </div>
+        </div>
+        <div id="option" class="contentBlock">
+          <div class="unlockedBlock" style="display:none;">
+            <div class="optionLine">
+              <span class="optionBlock">
+                save
+              </span>
+              <span class="optionBlock" style="display:none;">
+                cheat
+              </span>
+            </div>
+            <div class="optionLine">
+              <span class="optionBlock">
+                export
+              </span>
+              <span class="optionBlock">
+                import
+              </span>
+            </div>
+            <div class="optionLine">
+              <span class="optionBlock">
+                reset
+              </span>
+              <span class="optionBlock">
+                <a href="https://discord.gg/wkdVQxT" target="_blank">discord</a>
+              </span>
+            </div>
+          </div>
+          <div class="lockedBlock">
+            cost: 10 blocks
+          </div>
+        </div>
+      </span>
+    </div>
+  </body>
+</html>
